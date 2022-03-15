@@ -12,6 +12,8 @@ export enum CompressionMethod {
 }
 
 async function getTarCompressionMethod(): Promise<CompressionMethod> {
+  console.log('???????');
+
   if (process.platform === 'win32') {
     return CompressionMethod.GZIP;
   }
@@ -50,7 +52,7 @@ export async function createTar(
   cwd: string,
 ): Promise<CompressionMethod> {
   const compressionMethod = await getTarCompressionMethod();
-  console.log(`🔹 Using '${compressionMethod}' compression method.`);
+  console.log(`🔹 Using '${compressionMethod}' compression method. 222`);
 
   const compressionArgs =
     compressionMethod === CompressionMethod.GZIP
