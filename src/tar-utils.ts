@@ -52,7 +52,7 @@ export async function createTar(
   cwd: string,
 ): Promise<CompressionMethod> {
   const compressionMethod = await getTarCompressionMethod();
-  console.log(`🔹 Using '${compressionMethod}' compression method. 222`);
+  console.log(`🔹 Using '${compressionMethod}' compression method. 2222`);
 
   const compressionArgs =
     compressionMethod === CompressionMethod.GZIP
