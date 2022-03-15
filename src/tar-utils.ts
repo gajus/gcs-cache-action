@@ -23,10 +23,14 @@ async function getTarCompressionMethod(): Promise<CompressionMethod> {
     })
     .then((out) => out.stdout.trim())
     .then((out) => {
+      console.log('out', out);
+
       const extractedVersion = /v(\d+(?:\.\d+){0,})/.exec(out);
       return [out, extractedVersion ? extractedVersion[1] : null];
     })
     .catch(() => ['', null]);
+
+  console.log('zstdVersion', zstdVersion);
 
   if (!zstdOutput?.toLowerCase().includes('zstd command line interface')) {
     return CompressionMethod.GZIP;
